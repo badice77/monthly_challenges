@@ -1,15 +1,15 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>{{ text_month|title }} Challenge</title>
-  <meta name="description" content="My Page Description">
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-</head>
-<body>
-<h1>This {{ text_month|title }}'s challenge</h1>
-<h2>{{ text }}</h2>
+{% extends 'base.html' %}
 
-  <script src="js/scripts.js"></script>
-</body>
-</html>
+{% block page_title %}
+    {{ text_month|title }} Challenge
+{% endblock %} 
+
+{% block content %}
+    <h1>This {{ text_month|title }}'s challenge</h1>
+        {% if text is not None%}
+            <h2>{{ text }}</h2>
+        {% else %}
+            <p>There is no challenge for this month yet!</p>
+        {% endif %}
+{% endblock %}
+  

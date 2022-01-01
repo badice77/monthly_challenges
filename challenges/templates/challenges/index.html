@@ -1,17 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>All Challenges</title>
-  <meta name="description" content="My Page Description">
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-</head>
-<body>
-    <ul>
+ {% extends 'base.html' %}
 
+    {% block page_title %}
+        All Challenges
+    {% endblock %}
 
-
-    </ul>
-  <script src="js/scripts.js"></script>
-</body>
-</html>
+    {% block content %}
+        <ul>
+            {% for month in months %}
+                <li><a href="{% url 'month-challenge' month %}">{{ month|title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endblock %}
